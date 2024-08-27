@@ -7,7 +7,7 @@ import io.micronaut.http.annotation.Header;
 import io.micronaut.http.annotation.Post;
 import io.micronaut.http.client.annotation.Client;
 
-import java.util.Map;
+import java.util.List;
 
 @Client("${app.service.uri}")
 public interface MyClient {
@@ -17,9 +17,12 @@ public interface MyClient {
     @Get
     KeyValue getRoot(@Header(HttpHeaders.AUTHORIZATION) String auth);
 
+    @Get("/foo")
+    KeyValue getFoo(@Header(HttpHeaders.AUTHORIZATION) String auth);
+
     @Get("/{id}")
     KeyValue getId(@Header(HttpHeaders.AUTHORIZATION) String auth, String id);
 
-    @Get("/foo")
-    KeyValue getFoo(@Header(HttpHeaders.AUTHORIZATION) String auth);
+    @Get("/{id}/relations")
+    List<KeyValue> getRelations(@Header(HttpHeaders.AUTHORIZATION) String auth, String id);
 }

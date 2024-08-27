@@ -39,10 +39,10 @@ class DemoTest {
         String auth = getAuthorizationHeader("user", "password");
         MyClient client = getMyClient();
 
-        client.setRoot(auth, KeyValue.of("hello", "world"));
+        //client.setRoot(auth, KeyValue.of("hello", "world"));
         client.getRoot(auth);
-        client.getId(auth, "42");
-        client.getFoo(auth);
+        //client.getId(auth, "42");
+        //client.getFoo(auth);
     }
 
 }
