@@ -16,8 +16,8 @@ public interface MyClient {
     KeyValue getRoot();
 
     @Get("/{id}")
-    KeyValue getId(String id);
+    KeyValue getById(String id);
 
     @Get("/{id}/items")
-    List<KeyValue> getRelations(String id);
+    List<KeyValue> getItems(String id);
 }

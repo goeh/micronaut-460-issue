@@ -21,8 +21,7 @@ class DemoTest {
 
         client.getRoot();
         //client.setRoot(KeyValue.of("hello", "world"));
-        //client.getId("42");
-        //client.getFoo();
+        //client.getById("42");
+        //client.getItems("42");
     }
-
 }

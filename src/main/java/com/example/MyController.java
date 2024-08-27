@@ -19,17 +19,17 @@ public class MyController {
     }
 
     @Get
-    public KeyValue root() {
+    public KeyValue getRoot() {
         return KeyValue.of("hello", "world");
     }
 
     @Get("/{id}")
-    public KeyValue id(String id) {
+    public KeyValue getById(String id) {
         return KeyValue.of("hello", id);
     }
 
     @Get("/{id}/items")
-    public List<KeyValue> items(String id) {
+    public List<KeyValue> getItems(String id) {
         return List.of(KeyValue.of("hello", id), KeyValue.of("foo", "bar"));
     }
 }
