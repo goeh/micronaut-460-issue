@@ -6,14 +6,11 @@ import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Post;
 import io.micronaut.scheduling.TaskExecutors;
 import io.micronaut.scheduling.annotation.ExecuteOn;
-import io.micronaut.security.annotation.Secured;
-import io.micronaut.security.rules.SecurityRule;
 
 import java.util.List;
 
 @Controller
 @ExecuteOn(TaskExecutors.BLOCKING)
-@Secured(SecurityRule.IS_AUTHENTICATED)
 public class MyController {
 
     @Post
@@ -26,18 +23,13 @@ public class MyController {
         return KeyValue.of("hello", "world");
     }
 
-    @Get("/foo")
-    public KeyValue foo() {
-        return KeyValue.of("hello", "foo");
-    }
-
     @Get("/{id}")
     public KeyValue id(String id) {
         return KeyValue.of("hello", id);
     }
 
-    @Get("/{id}/relations")
-    public List<KeyValue> getRelations(String id) {
+    @Get("/{id}/items")
+    public List<KeyValue> items(String id) {
         return List.of(KeyValue.of("hello", id), KeyValue.of("foo", "bar"));
     }
 }
